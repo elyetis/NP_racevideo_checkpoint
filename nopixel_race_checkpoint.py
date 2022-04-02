@@ -1,6 +1,6 @@
 from cv2 import cv2
 import pytesseract
-pytesseract.pytesseract.tesseract_cmd = 'F:\\Anaconda\\envs\\env_tesseract\\Library\\bin\\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = 'Tesseract-OCR\\tesseract.exe'
 import re
 from bounding_box import *
 from checkpoint_validation import *
