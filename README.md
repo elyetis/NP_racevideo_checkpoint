@@ -14,6 +14,7 @@ That being said you don't need to do much, and I'll try to automate some of the 
 For a race looking like this :
 ![ex1](https://i.imgur.com/yqjAGLT.png)
 ![ex2](https://i.imgur.com/mCQaDaV.png)
+
 This is what you would have written :
 ![ex3](https://i.imgur.com/Z86tXU4.png)
 
