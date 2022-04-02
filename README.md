@@ -10,7 +10,7 @@ Ideal scenario would be someone making some shared google sheet with different r
 
 
 ## How to use :
-There is no GUI, so everything is in command, and I know as a whole it is not very user friendly ( if you don't do what is expected, it will just crash ).
+There is no GUI, so pretty much everything is in command, and I know as a whole it is not very user friendly ( if you don't do what is expected, it will just crash ).
 That being said you don't need to do much, and I'll try to automate some of the things the program ask you to input at the start of the program.
 
 # Example :
