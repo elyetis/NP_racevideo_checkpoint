@@ -16,6 +16,8 @@ For a race looking like this :
 ![ex2](https://i.imgur.com/mCQaDaV.png)
 This is what you would have written :
 ![ex3](https://i.imgur.com/Z86tXU4.png)
+
 When asked to "With your mouse left button, select the whole race interface from top left to bottom right then press Enter"
 this is what I call the race interface :
+
 ![ex3](https://i.imgur.com/BpREiPt.png)
