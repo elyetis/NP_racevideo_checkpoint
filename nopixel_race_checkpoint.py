@@ -13,7 +13,6 @@ DICT = ['checkpoint'] #not really needed in this form anymore
 
 print("Please input the number of lap ( 0 for a sprint ) : ")
 number_of_lap = int(input(''))
-#print("please input the final Total Time ( format is 00:00.000 )")#!!! I should be able to automate that part by checking when "Checkpoint" disapear from the UI
 print('Please input the number of checkpoint as displayed by the UI ( finish line does not count ) : ')
 final_checkpoint=input('')
 print('Please input video file name ( with extension ) : ')
