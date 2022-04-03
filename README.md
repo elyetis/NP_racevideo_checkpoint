@@ -6,6 +6,7 @@ Ideal scenario would be someone making some shared google sheet with different r
 ## Note :
 - only really tested on 936p/1080p video, it should also work on 720p video but I don't know if the lower resolution still make it readable enough for tysseract, probably depend on the scale of the UI
 - don't expect ultra high accuracy, performance/fps impact the result. Even at 60 fps at best the accuracy would be within ~17 milliseconds.
+- it's pretty slow, a little less than 4 min for a 9 min race
 
 
 ## How to use :
