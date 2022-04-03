@@ -3,9 +3,8 @@ This program allow you to get sector time from the video a race by analysing it 
 Ideal scenario would be someone making some shared google sheet with different racer PB / LR etc.
 
 
-## Important :
-- probably only properly works on *936p* video at the moment ( this is what happen when you only use neutren and Sarah_Digitally video during your tests... ), it should likely works on 1080/720p too *if there is no phone notification on screen during the race*, that being said I'll probably solve that limitation in the next few days
-- that being said 720p might never properly work, lower resolution might make it too hard for proper text recognition I don't know yet
+## Note :
+- only really tested on 936p/1080p video, it should also work on 720p video but I don't know if the lower resolution still make it readable enough for tysseract, probably depend on the scale of the UI
 - don't expect ultra high accuracy, performance/fps impact the result. Even at 60 fps at best the accuracy would be within ~17 milliseconds.
 
 
