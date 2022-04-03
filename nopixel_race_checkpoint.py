@@ -1,6 +1,5 @@
 from cv2 import cv2
 import pytesseract
-#pytesseract.pytesseract.tesseract_cmd = 'F:\\Anaconda\\envs\\env_tesseract\\Library\\bin\\tesseract.exe'
 pytesseract.pytesseract.tesseract_cmd = 'Tesseract-OCR\\tesseract.exe'
 import re
 from bounding_box import *
@@ -9,8 +8,7 @@ from lap_validation import *
 
 
 print('OpenCV version: ' + cv2.__version__)
-# hardcoded list with keywords for now
-DICT = ['checkpoint']
+DICT = ['checkpoint'] #not really needed in this form anymore
 
 
 print("Please input the number of lap ( 0 for a sprint ) : ")
