@@ -1,5 +1,6 @@
 from cv2 import cv2
 import pytesseract
+#pytesseract.pytesseract.tesseract_cmd = 'F:\\Anaconda\\envs\\env_tesseract\\Library\\bin\\tesseract.exe'
 pytesseract.pytesseract.tesseract_cmd = 'Tesseract-OCR\\tesseract.exe'
 import re
 from bounding_box import *
@@ -50,7 +51,7 @@ minutes=0
 secondes=0
 milisec=0
 
-vertical_shift_phone=98 #!!!value only true for 936p video, I still need to see how it scale
+
 
 
 print('Working...')
@@ -81,6 +82,12 @@ success,frame = vidcap.read()
 
 
 #but since we want the proper position of the race interface is, we make sure people doing it on a frame where the UI isn't moved by a phone notification
+video_height = vidcap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+#print('video_height = ' + str(video_height))
+vertical_shift_phone=round(int(video_height)/(9.61))#98 for 936p    -  112 for 1080p
+ 
+#print('arondi calcul = ' + str(testestest))
+
 
 
 answer='y'
@@ -96,7 +103,7 @@ while str(answer)=='n':
 	cv2.imshow("frame", frame)
 	cv2.waitKey(0)
 	
-	print('Same thing : ')
+	print('Again, close the picture and press Enter if the race UI is where it should be ( no phone notification pushing it up ), otherwise input n')
 	answer=input('')
 
 	
