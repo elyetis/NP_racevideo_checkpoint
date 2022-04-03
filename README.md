@@ -1,6 +1,6 @@
 This program allow you to get sector time from the video of a race by analysing it with Pysseract.
 
-Ideal scenario would be someone making some shared google sheet with different racer PB / LR etc.
+Ideal scenario would be someone making something like a shared google sheet with different race PB / LR etc.
 
 
 ## Note :
