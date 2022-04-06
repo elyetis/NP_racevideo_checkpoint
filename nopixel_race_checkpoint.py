@@ -1,5 +1,6 @@
 from cv2 import cv2
 import pytesseract
+#pytesseract.pytesseract.tesseract_cmd = 'F:\\Anaconda\\envs\\env_tesseract\\Library\\bin\\tesseract.exe'
 pytesseract.pytesseract.tesseract_cmd = 'Tesseract-OCR\\tesseract.exe'
 import re
 from bounding_box import *
@@ -8,11 +9,13 @@ from lap_validation import *
 
 
 print('OpenCV version: ' + cv2.__version__)
-DICT = ['checkpoint'] #not really needed in this form anymore
+
+DICT = ['checkpoint']
 
 
 print("Please input the number of lap ( 0 for a sprint ) : ")
 number_of_lap = int(input(''))
+#print("please input the final Total Time ( format is 00:00.000 )")#!!! I should be able to automate that part by checking when "Checkpoint" disapear from the UI
 print('Please input the number of checkpoint as displayed by the UI ( finish line does not count ) : ')
 final_checkpoint=input('')
 print('Please input video file name ( with extension ) : ')
@@ -93,7 +96,7 @@ cv2.imshow("frame", frame)
 cv2.waitKey(0)
 answer=input('')
 while str(answer)=='n':
-	video_time=video_time+5000
+	video_time=video_time+4000
 	frame = vidcap.set(cv2.CAP_PROP_POS_MSEC, video_time)
 	success,frame = vidcap.read()
 	
@@ -250,7 +253,7 @@ while skipping_frames==1:
 		print('else : any(word in data for word in DICT)')
 		course_started=0
 	
-	if skip_duration<500 and consecutive_skips>0:#150 peut etre changé pour une valeur plus faible ?
+	if skip_duration<150 and consecutive_skips>0:#150 peut etre changé pour une valeur plus faible ?
 		print('skip_duration<150')
 		video_time=video_time-skip_duration
 		frame = vidcap.set(cv2.CAP_PROP_POS_MSEC, video_time)
@@ -582,6 +585,7 @@ while success :
 			print('calculated_time_new_checkpoint : ' + str(calculated_time_new_checkpoint))
 			print('calculated_sector_duration : ' + str(calculated_sector_duration)) 
 			print('calculated_time_previous_checkpoint : ' + str(calculated_time_previous_checkpoint))
+			print('pytesseract_time_previous_checkpoint : ' + str(pytesseract_time_previous_checkpoint))
 			print('calculated_total_time : ' + str(calculated_total_time)) 			
 			print('------ info time newcheckpoint -------') 
 			
@@ -628,16 +632,13 @@ while success :
 				secondes=data_time_list[1]
 				milisec=data_time_list[2]
 				print('\n minutes : ' + minutes + ' secondes : ' + secondes + ' milisec : ' + milisec)
-				
 				pytesseract_time_previous_checkpoint = int(minutes)*60000+int(secondes)*1000+int(milisec)
-				print('pytesseract_time_previous_checkpoint = ')
-				print(pytesseract_time_previous_checkpoint)
-				
 				
 				#we still check if there is not a discrepancy between the value read, and the value calculated, if it's too big we prefer to trust the calculated value
-				if abs(int(pytesseract_time_previous_checkpoint)-int(calculated_total_time))>500: #we accept a 500ms discrepancy, can be modified
+				if abs(int(pytesseract_time_previous_checkpoint)-int(calculated_total_time))>200: #we accept a 200ms discrepancy, can be modified
 					print('writing calculated_total_time in file...')
-					file.write(str(calculated_total_time)+'|')		
+					file.write(str(calculated_total_time)+'|')
+					pytesseract_time_previous_checkpoint=calculated_total_time			
 				else:
 					print('writing pytesseract_time_previous_checkpoint in file...')
 					file.write(str(pytesseract_time_previous_checkpoint)+'|')
